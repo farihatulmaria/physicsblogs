@@ -1,8 +1,8 @@
 # Aurora Physics Blog
 
-A modern, high-end physics blog website with a chic, clean, and relaxing aesthetic. Built with React, Vite, and Tailwind CSS, featuring smooth animations, elegant typography, and a luxurious color palette.
+A modern, high-end physics blog website with a chic, clean, and relaxing aesthetic. Built with React, Vercel, and Tailwind CSS, featuring smooth animations, elegant typography, and a luxurious color palette.
 
-## ✨ Features
+## Features
 
 ### Design & UX
 - **Modern Aesthetic**: Soft neutrals, luxurious emerald greens, light grays, and subtle gold accents
@@ -25,18 +25,17 @@ A modern, high-end physics blog website with a chic, clean, and relaxing aesthet
 - **Newsletter**: Email subscription integration ready
 - **Social Sharing**: Share buttons for blog posts
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Technology | Version | Purpose |
 |------------|---------|---------|
 | React | 18.x | UI Framework |
-| Vite | 5.x | Build Tool & Dev Server |
 | Tailwind CSS | 3.x | Styling |
 | Framer Motion | 10.x | Animations |
 | React Router DOM | 6.x | Routing |
 | Lucide React | Latest | Icons |
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js (v18 or higher)
@@ -63,7 +62,7 @@ A modern, high-end physics blog website with a chic, clean, and relaxing aesthet
 4. **Open in browser**
    Navigate to `http://localhost:3000`
 
-## 🚀 Available Scripts
+## Available Scripts
 
 | Command | Description |
 |---------|-------------|
@@ -72,7 +71,7 @@ A modern, high-end physics blog website with a chic, clean, and relaxing aesthet
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint for code quality |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 aurora-physics-blog/
@@ -80,27 +79,38 @@ aurora-physics-blog/
 │   └── og-image.png       # Open Graph image
 ├── src/
 │   ├── components/        # Reusable UI components
-│   │   ├── Header.jsx     # Navigation header
-│   │   ├── Footer.jsx     # Site footer
-│   │   ├── BlogCard.jsx   # Blog post card
-│   │   └── ...           # Other components
-│   ├── pages/            # Page components
-│   │   ├── Home.jsx      # Home page
-│   │   ├── About.jsx     # About page
-│   │   ├── Blog.jsx      # Blog listing
-│   │   ├── BlogPost.jsx  # Single blog post
-│   │   └── Support.jsx   # Contact/Support page
-│   ├── App.jsx           # Main app component & routing
-│   ├── index.css         # Global styles
-│   └── main.jsx          # Entry point
-├── index.html            # HTML template
+│   │   ├── header.jsx        # Navigation header
+│   │   ├── footer.jsx        # Site footer
+│   │   ├── BlogPageCompo.jsx # Blog post card
+│   │   ├── BackToTop.jsx     # Blog post card
+│   │   ├── login.jsx         # login page
+│   │   └── SideBarItems.jsx  # dashboard side bar
+│   ├── lib/
+│   │   └── data.ts       # all data 
+│   ├── about/
+│   │   └── page.tsx      # about page
+│   ├── blog/
+|   |   ├── page.tsx      # blog page
+│   │   └── SingleBlogPOst.tsx  
+│   ├── dashboard/
+|   |   ├── article/
+|   │   │   └── page.tsx 
+|   |   ├── analysis/
+|   │   │   └── page.tsx 
+|   |   └── newpost/
+|   │       └── page.tsx 
+│   ├── layout.jsx        # Main app component
+│   ├── globals.css       # Global styles
+│   └── page.jsx          # Entry point (the home page)
+├── eslint.config.mjs     # eslint configuration
+├── next.config.ts        # nextjs configuration
 ├── package.json          # Dependencies & scripts
-├── tailwind.config.js    # Tailwind configuration
-├── vite.config.js        # Vite configuration
+├── tsconfig.json         # Tailwind configuration
+├── postcss.config.mjs    # Vite configuration
 └── README.md             # This file
 ```
 
-## 🎨 Design System
+## Design System
 
 ### Color Palette
 
@@ -127,7 +137,7 @@ font-family: 'DM Sans', sans-serif;
 ### Spacing Scale
 - Uses Tailwind's default spacing scale (4, 8, 12, 16, 20, 24, etc.)
 
-## 📝 Customization
+##  Customization
 
 ### Changing Colors
 Edit `tailwind.config.js` to customize the color palette:
@@ -145,7 +155,7 @@ module.exports = {
   }
 }
 ```
-## 📱 Browser Support
+##  Browser Support
 
 | Browser | Version |
 |---------|---------|
@@ -154,7 +164,7 @@ module.exports = {
 | Safari | Latest |
 | Edge | Latest |
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -163,14 +173,13 @@ module.exports = {
 5. Open a Pull Request
 
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Design inspiration from modern editorial layouts
 - Icons by [Lucide](https://lucide.dev/)
-- Fonts by [Google Fonts](https://fonts.google.com/)
-- Built with ❤️ using React and Tailwind CSS
+- Built with passion using React and Tailwind CSS
 
-## 📞 Support
+## Support
 
 For questions or support, please:
 - Open an issue on GitHub
@@ -179,4 +188,4 @@ For questions or support, please:
 
 ---
 
-**Made with React, Typescript & Tailwind CSS** 🚀
+**Made with React, Typescript & Tailwind CSS** 

@@ -1,3 +1,4 @@
+import { LayoutDashboard,FileText,BarChart3 } from "lucide-react";
 export const navItems = [
   { id: "home", label: "Home",link:"/" },
   { id: "about", label: "About",link:"/about" },
@@ -132,6 +133,10 @@ export const categories = [
   'Particle Physics'
 ];
 
-
+export const sideBarItems =[
+  {icon:LayoutDashboard, label:'Dashboard',path:'/dashboard'},
+  {icon:FileText, label:'Articles',path:'/dashboard/article'},
+  {icon:BarChart3, label:'Analytics',path:'/dashboard/analytics'},
+]
 
 

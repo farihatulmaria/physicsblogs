@@ -1,4 +1,5 @@
-export default function About(){
+export default function newpost(){
+
     return(
         <div></div>
     );
