@@ -2,6 +2,8 @@
 
 A modern, high-end physics blog website with a chic, clean, and relaxing aesthetic. Built with React, Vercel, and Tailwind CSS, featuring smooth animations, elegant typography, and a luxurious color palette.
 
+[Demo](https://physicsblogs.vercel.app/)
+
 ## Features
 
 ### Design & UX
