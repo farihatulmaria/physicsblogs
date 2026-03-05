@@ -6,7 +6,7 @@ import { useState } from "react";
 import Edit from "../edit/page";
 
 export default function article(){
-    const [edit,setEdit]=useState<{ id: number; category: string; title: string; excerpt: string; image: string; author: string; date: string; content: string } | null>(null);
+    const [edit,setEdit]=useState<{ id: number; category: string; title: string; excerpt: string; image: string; author: string; date: string; content: string; readTime:string; } | null>(null);
     const handlePostDelete=()=>{
         console.log('delete')
     }
