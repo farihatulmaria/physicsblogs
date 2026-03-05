@@ -1,10 +1,12 @@
 import { LayoutDashboard,FileText,BarChart3 } from "lucide-react";
+
 export const navItems = [
   { id: "home", label: "Home",link:"/" },
   { id: "about", label: "About",link:"/about" },
   { id: "blog", label: "Blog",link:"/blog" },
   { id: "support", label: "Support",link:"/support" },
 ];
+
 const loremContent = `
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ornare sollicitudin libero a congue. Sed pharetra quis erat pharetra egestas. Quisque vel vulputate mi, vel rhoncus lacus. Vestibulum sodales turpis sit amet condimentum accumsan. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
   
@@ -15,6 +17,20 @@ const loremContent = `
   
   <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Consectetur adipiscing elit, sed do eiusmod tempor.</p>
 `;
+
+interface blogPost{
+  id: number,
+  title: string,
+  category: string,
+  excerpt: string,
+  image: string,
+  author: string,
+  date: string,
+  readTime: string,
+  content:string,
+  featured?: boolean,
+  status: string,
+}
 
 export const blogPosts = [
   {
@@ -133,10 +149,9 @@ export const categories = [
   'Particle Physics'
 ];
 
-export const sideBarItems =[
+export const sideBarItems = [
   {icon:LayoutDashboard, label:'Dashboard',path:'/dashboard'},
   {icon:FileText, label:'Articles',path:'/dashboard/article'},
-  {icon:BarChart3, label:'Analytics',path:'/dashboard/analytics'},
 ]
 
 

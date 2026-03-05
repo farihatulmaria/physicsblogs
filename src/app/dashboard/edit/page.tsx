@@ -9,10 +9,10 @@ import {
   Trash
 } from 'lucide-react';
 import Link from 'next/link';
-import SideBarItems from '@/app/components/SideBarItems';
 import { blogPosts, categories } from '@/app/lib/data';
 
-export default function NewPost() {
+export default function Edit(post: { id: number; category: string; title: string; excerpt: string; image: string; author: string; date: string; content: string ,readTime:string}) {
+    
   const [formData, setFormData] = useState({
     id: 0,
     title: '',
@@ -26,24 +26,26 @@ export default function NewPost() {
     featured: false,
     status: '',
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSave = (e: React.FormEvent) => {
+    blogPosts.forEach(obj => {
+      if (obj.id === post.id) {
+        obj.title = formData.title;
+        obj.category = formData.category;
+        obj.excerpt = formData.excerpt;
+        obj.image = formData.image;
+        obj.author = formData.author;
+        obj.date = formData.date;
+        obj.readTime = formData.readTime;
+        obj.content = formData.content;
+      }
+      console.log(blogPosts)
+    });
     setFormData({...formData, status: 'Published'});
     e.preventDefault();
     // Simulate save
     blogPosts.push(formData);
   };
-  const handleDraftSubmit = (e: React.FormEvent) => {
-    setFormData({...formData, status: 'Draft'});
-    e.preventDefault();
-    // Simulate save
-    blogPosts.push(formData);
-  };
-
   return (
-    <div className="min-h-screen bg-stone-50 flex">
-    <SideBarItems/>
-      {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
         <header className="bg-white border-b border-stone-200 px-8 py-4 sticky top-0 z-10">
           <div className="flex justify-between items-center max-w-5xl mx-auto">
@@ -54,7 +56,7 @@ export default function NewPost() {
               >
                 <ChevronLeft size={20} className="text-stone-600" />
               </Link>
-              <h1 className="font-bold  text-emerald-950">Create New Article</h1>
+              <h1 className="font-bold  text-emerald-950">Edit Article</h1>
             </div>
             <div className="flex items-center space-x-3">
               <Link 
@@ -63,19 +65,12 @@ export default function NewPost() {
               >
                 <Trash size={20} />
               </Link>
-              <button
-                onClick={handleDraftSubmit} 
-                className="flex items-center space-x-2 px-4 py-2 border border-stone-200 rounded-lg text-stone-700 hover:bg-stone-50 transition-colors"
-                >
-                <Save size={18}/>
-                <span>Save</span>
-              </button>
               <button 
-                onClick={handleSubmit}
+                onClick={handleSave}
                 className="flex items-center space-x-2 px-6 py-2 bg-emerald-950 text-white rounded-lg hover:bg-emerald-900 transition-colors shadow-sm"
               >
                 <Send size={18} />
-                <span>Publish</span>
+                <span>Save</span>
               </button>
             </div>
           </div>
@@ -97,7 +92,7 @@ export default function NewPost() {
                     type="text"
                     placeholder="Enter article title..."
                     className="w-full text-xl p-2 font-bold border border-stone-200 focus:ring-0 placeholder:text-stone-300 text-emerald-950"
-                    value={formData.title}
+                    value={post.title}
                     onChange={(e) => setFormData({...formData, title: e.target.value})}
                     required
                   />
@@ -109,7 +104,7 @@ export default function NewPost() {
                     rows={3}
                     placeholder="Brief summary of the article..."
                     className="w-full border border-stone-200 p-2 focus:ring-0 placeholder:text-stone-300 p-0 resize-none text-stone-600"
-                    value={formData.excerpt}
+                    value={post.excerpt}
                     onChange={(e) => setFormData({...formData, excerpt: e.target.value})}
                     required
                   />
@@ -120,7 +115,7 @@ export default function NewPost() {
                   <input
                     type="date"
                     className="w-full text-sm p-2 border border-stone-200 focus:ring-0 placeholder:text-stone-300 p-0 text-emerald-950"
-                    value={formData.date}
+                    value={post.date}
                     onChange={(e) => setFormData({...formData, date: String(e.target.value)})}
                     required
                   />
@@ -132,7 +127,7 @@ export default function NewPost() {
                     type="text"
                     placeholder="Enter read time..."
                     className="w-full text-sm p-2 border border-stone-200 focus:ring-0 placeholder:text-stone-300 p-0 text-emerald-950"
-                    value={formData.readTime}
+                    value={post.readTime}
                     onChange={(e) => setFormData({...formData, readTime: e.target.value})}
                     required
                   />
@@ -144,7 +139,7 @@ export default function NewPost() {
                     <textarea
                       placeholder="Begin your scientific exploration(in html)..."
                       className="w-full h-full min-h-[400px] border border-stone-200 p-2 focus:ring-0 placeholder:text-stone-300 p-0 resize-none text-stone-800 leading-relaxed"
-                      value={formData.content}
+                      value={post.content}
                       onChange={(e) => setFormData({...formData, content: e.target.value})}
                       required
                     />
@@ -162,7 +157,7 @@ export default function NewPost() {
                     type="text"
                     placeholder="Enter author's name..."
                     className="w-full text-sm p-2 border border-stone-200 focus:ring-0 placeholder:text-stone-300 p-0 text-emerald-950"
-                    value={formData.author}
+                    value={post.author}
                     onChange={(e) => setFormData({...formData, author: e.target.value})}
                     required
                   />
@@ -174,7 +169,7 @@ export default function NewPost() {
                     type="text"
                     placeholder="Enter image link..."
                     className="w-full text-sm p-2 border border-stone-200 focus:ring-0 placeholder:text-stone-300 p-0 text-emerald-950"
-                    value={formData.image}
+                    value={post.image}
                     onChange={(e) => setFormData({...formData, image: String(e.target.value)})}
                     required
                   />
@@ -188,7 +183,7 @@ export default function NewPost() {
                       key={cat}
                       onClick={() => setFormData({...formData, category: String(cat)})}
                       className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                        formData.category === cat 
+                        post.category === cat 
                           ? 'bg-emerald-50 text-emerald-900 font-medium border border-emerald-100' 
                           : 'text-stone-600 hover:bg-stone-50 border border-transparent'
                       }`}
@@ -202,6 +197,5 @@ export default function NewPost() {
           </motion.div>
         </div>
       </main>
-    </div>
   );
 }
